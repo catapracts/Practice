@@ -47,7 +47,7 @@ int main(void)
     printf("%%-7.2f를 사용한 결과 : |%-7.2f|\n\n", 1.23);
 
     printf("====================================\n\n");
-
+/*
     // scanf - data를 입력 받고, data type에 해당하는 크기의 memory를 우선 할당
     // variable = 이름을 할당 받음 메모리 공간
     // tasklist, tskkill
@@ -76,7 +76,7 @@ int main(void)
     scanf("%f %lf", &num03, &num04);
     printf("입력하신 두 실수는 %f와 %f입니다.\n", num03, num04);
     printf("이번에는 두 실수 모두 제대로 저장되었습니다.\n");
-
+*/
     return 0;
 }
 
