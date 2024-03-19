@@ -18,7 +18,7 @@
 변수(variable)
 - data를 저장하기 위해, Program에 의해 이름을 할당받은 Memory Space + 값 변경 가능 
 - Memory Space받으면  Memory Address도 같이 가진다. 
-- type : 정수(short, int, long), 실수(float, double), 문자(char, String), boolean, pointer, struct
+- type : 정수(short, int, long), 실수(float, double), 문자(char), boolean, pointer, struct
 - unsigned/signed 정수, 문자형 / long double -> 할당되는 memory 크기 & data표현 범위 다르다. 
 - 생성 규칙 : 숫자로 시작X, 이름 사이 공백X, 미리간 정해진 keyword사용X(ex-int), 대소문자 구분(ex - int i랑 int I랑 서로 다른 변수 취급)
 - 선언 : 자료형 변수이름; / 선언과 동시에 초기화 :  자료형 변수이름 = 값; / 대입 : 변수이름 = 값;
@@ -50,6 +50,7 @@ explicit - type cast연산자 이용/ (변환하려고 하는 type)
 - Program의 산술식 or 연산식 표현/처리하는 기호
 - 산술(+,-,*,/,%), 대입(=,+=,-=,*=,/=,%=), 증감(++,--), 비교(<,>,==,!=,>=,<=), 논리(&&,||,!), 비트(&,|,^,~,<<,>>), 기타(3연산자, pointer(&(주소),*(참조)), sizeof,)
 - 우선순위 존재
+
 
 배열(Array)
 - 같은 type의 변수들로 이루어진 유한집합 / 같은 type data 많이 다뤄야할 경우 가장 자주 사용하는 기본 자료구조 /  N차원 배열 가능 
@@ -212,7 +213,4 @@ int main(void)
  printf("d5배열의 길이 : %d\n", d6); // 결과 : d5배열의 길이 : 3
  
  int d7[] = {5,6,7};
- 
- 
- 
 }
