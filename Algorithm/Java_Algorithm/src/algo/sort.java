@@ -259,8 +259,58 @@ public class sort
 	Quick Sort
 	- Divide and Conquer Algorithm 中 하나 / 피벗(pivot)을 사용 / 피벗이 들어갈 위치에 따라 불균형
 	- Merge Sort랑 속도가 비슷하고 Heap Sort보다 빠름
-	- 시간 복잡도 : worst = O(n^2), average, best = O(nlog n) 
+	- 시간 복잡도 : worst = O(n^2), average, best = O(nlog n)
+	- left = 부분 배열의 첫 인덱스, right = 부분 배열의 마지막 인덱스, pivot = 그 중간의 원소 값
+	- Logic
+	partition()에서 left의 원소 값이 pivot보다 클 때까지 증가 시키면서 찾는다.
+	right의 원소 값이 pivot보다 작을 때까지 감소 시키면서 찾는다.
+	둘다 찾았으면 두 원소를 교환한다.
+	반복하다 보면 자연스럽게 pivot 좌측에는 더 작은 값들이고 우측에는 더 큰 값들이다.
+	끝나면 pivot의 위치인 left를 반환한다.
+	그럼 전달 받은 pivot은 알맞은 위치에 특정 되었으므로 다시 pivot을 기준으로 좌측, 우측 부분집합으로 나누어 재귀 호출 한다.
 	*/
+	
+	public static void sortByQuickSort(int[] arr) 
+	{
+	    quickSort(arr, 0, arr.length - 1);
+	}
+	
+	public static void quickSort(int[] arr, int left, int right) 
+	{
+	    int part = partition(arr, left, right);
+	    if (left < part - 1) {
+	        quickSort(arr, left, part - 1);
+	    }
+	    if (part < right) {
+	        quickSort(arr, part, right);
+	    }
+	}
+	
+	public static int partition(int[] arr, int left, int right) 
+	{
+	    int pivot = arr[(left + right) / 2];
+	    while (left <= right) {
+	        while (arr[left] < pivot) 
+	        {
+	            left++;
+	        }
+	        
+	        while (arr[right] > pivot) 
+	        {
+	            right--;
+	        }
+	        
+	        if (left <= right) 
+	        {
+	            swap(arr, left, right);
+	            left++;
+	            right--;
+	        }
+	    }
+	    return left;
+	}
+	
+	
 	
 	public static void main(String[] args) 
 	{
