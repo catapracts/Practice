@@ -25,16 +25,24 @@ public class sort
 	// 배열 안에 있는 요소들을 정렬하므로 1개 배열만 매개변수로 받는다
 	public static void Bubble(int array[])
 	{
-		//i와 j 2개의 index를 통해 비교, i가 첫 번째, j가 바로 다음 2번째
-		for(int i = 0; i < array.length-1; i++)
+//		//i와 j 2개의 index를 통해 비교, i가 첫 번째, j가 바로 다음 2번째
+//		for(int i = 0; i < array.length-1; i++) //
+//		{
+//			for(int j = 0; j < array.length-i-1; j++)
+//			{
+//				//확인했을 때, 뒤에 element가 더 작은 값이라면 둘의 위치를 swap
+//				if(array[j] > array[j+1])
+//				{
+//					swap(array, j, j + 1);
+//				}
+//			}
+//		}
+		
+		for(int i = 0; i<array.length-1; i++)
 		{
-			for(int j = 0; j < array.length-i-1; j++)
+			if(array[i]> array[i+1])
 			{
-				//확인했을 때, 뒤에 element가 더 작은 값이라면 둘의 위치를 swap
-				if(array[j] > array[j+1])
-				{
-					swap(array, i, j + 1);
-				}
+				swap(array,i,i+1);
 			}
 		}
 	}
@@ -310,11 +318,43 @@ public class sort
 	    return left;
 	}
 	
-	
-	
+
 	public static void main(String[] args) 
 	{
-		// TODO Auto-generated method stub
+		int array[] = {5,2,4,1,3};
+		int index1 = 0;
+		int index2 = 1;
+		System.out.println(array[index1]);
+		System.out.println(array[index2]);
+		System.out.println(Arrays.toString(array));
+		
+		swap(array, index1, index2);
+		System.out.println("==========================================");
+		
+		System.out.println(array[index1]);
+		System.out.println(array[index2]);
+		System.out.println(Arrays.toString(array));
+		
+		System.out.println("\n");
+		System.out.println("==========================================");
+		System.out.println("\n");
+		
+		int array1[] = {6,9,7,8,10};
+		System.out.println(Arrays.toString(array1));
+		Bubble(array1);
+		System.out.println(Arrays.toString(array1));
+		
+		System.out.println("\n");
+		System.out.println("==========================================");
+		System.out.println("\n");
+		
+		int array2[] = {15,14,11,13,12};
+		System.out.println(Arrays.toString(array2));
+		Selection(array2);
+		System.out.println(Arrays.toString(array2));
+
+		
+		
 
 	}
 

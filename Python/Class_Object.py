@@ -53,7 +53,7 @@ class Horse:
         self.velocity = 0
 
 if __name__ == '__main__':
-    danbi = Horse(5, 160, 'brown', 0, 0)
+    danbi = Horse(3, 180, 'Black', 0, 0)
 
 
 class Alphabets:
@@ -79,8 +79,11 @@ if __name__ == '__main__':
 
 """
 부모(parent, super) class - 자식(child, sub) class
-Inheritance(상속)
-- 물려받는 것
+Inheritance(상속) : 물려받는 것
+Overriding : 부모 클래스로부터 상속받은 특성을 자식 클래스에서 재정의하는 것
+Dynamic Binding : 프로그램의 실행 시간(runtime)에 그 성격이 결정되는 것
+Multiplex Inheritance(다중 상속) : 여러 개의 부모 클래스로부터 동시에 특성을 물려받는 것(일반적인 Programming Language에서는 허용X - C++, JAVA, etc...), Python은 허용 / 괄호 안에 특성을 물려받고 싶은 부모 클래스들을 콤마(,)를 사용하여 나열
+class WolfDog(Wolf, Dog):
 """
 import math
 
@@ -126,5 +129,63 @@ class Dog(Animal):
 if __name__ == '__main__':
     danbi = Horse(5, 160, 'brown', 0, 0)
     choco = Dog(10, 100, 'black', 50, 30)
-    danbi.sound()
-    choco.sound()
+    danbi.sound() #결과 : Neigh
+    choco.sound() #결과 : Bow-Wow
+
+"""
+Module : 1개의 Python file(Programming Language마다 정의가 다르다.)
+Package : N개의 Module이 모인 file
+간단 사용, 배포 가능
+
+사용법 : import
+import Module이름 : Module이름에 저장된 변수나 함수를 사용하겠다.
+from Module이름 import* : Module이름에 저장된 변수나 함수를 전부 사용하겠다. 
+from Module이름 import function명(Class명) : Module이름에 저장된 function명(Class명)을 사용하겠다.
+
+ex - math, turtle
+math Module - 수학관련 다양한 함수들과 상수들 정의 / Python에서 제공하는 기본 Module - 설치 필요X
+
+turtle Module - code에 다라 그림 그려주는 Module / Python에서 제공하는 기본 Module - 설치 필요X
+"""
+
+import math
+
+print(math.pi) #3.141592653589793 / 원주율
+print(math.e) #2.718281828459045 / 오일러 상수
+
+#중심이 (0,0)이고 반지름이 5인 원의 넓이와 θ=60˚일 때의 x와 y값
+radius = 5.0
+area = (radius ** 2) * math.pi
+theta = math.radians(60)
+x = radius * math.cos(theta)
+y = radius * math.sin(theta)
+
+print("area : " + str(area)) #area : 78.53981633974483
+print("x : " + str(x)) #x : 2.5000000000000004
+print("y : " + str(y)) #y : 4.330127018922193
+
+"""
+#사각형 그리는 예제
+from turtle import *
+forward(100)
+right(90)
+forward(100)
+right(90)
+forward(100)
+right(90)
+forward(100)
+mainloop()
+"""
+
+#기하학적 도형 그리는 예제
+from turtle import *
+for i in range(20):
+    forward(100)
+    right(90)
+    forward(100)
+    right(90)
+    forward(100)
+    right(90)
+    forward(100)
+    right(72)
+mainloop()
