@@ -352,10 +352,67 @@ public class sort
 		System.out.println(Arrays.toString(array2));
 		Selection(array2);
 		System.out.println(Arrays.toString(array2));
-
 		
+		System.out.println("\n");
+		System.out.println("==========================================");
+		System.out.println("\n");
 		
+		int array3[] = {16,19,17,20,18};
+		System.out.println(Arrays.toString(array3));
+		Insertion(array3);
+		System.out.println(Arrays.toString(array3));
+		
+		System.out.println("\n");
+		System.out.println("==========================================");
+		System.out.println("\n");
+		
+		int array4[] = {25,21,24,22,23};
+		System.out.println(Arrays.toString(array4));
+		Shell(array4);
+		System.out.println(Arrays.toString(array4));
+		
+		System.out.println("\n");
+		System.out.println("==========================================");
+		System.out.println("\n");
+		
+		int array5[] = {30,26,28,29,27};
+		System.out.println(Arrays.toString(array5));
+		sortByMergeSort(array5);
+		System.out.println(Arrays.toString(array5));
+		
+		System.out.println("\n");
+		System.out.println("==========================================");
+		System.out.println("\n");
+		
+		int array6[] = {31,34,32,35,33};
+		System.out.println(Arrays.toString(array6));
+		sortByHeapSort(array6);
+		System.out.println(Arrays.toString(array6));
+		
+		System.out.println("\n");
+		System.out.println("==========================================");
+		System.out.println("\n");
+		
+		int array7[] = {36,40,38,37,39};
+		System.out.println(Arrays.toString(array7));
+		sortByQuickSort(array7);
+		System.out.println(Arrays.toString(array7));
+		
+		System.out.println("\n");
+		System.out.println("==========================================");
+		System.out.println("\n");
+		
+		int array8[] = {44,41,43,45,42};
+		int index3 = 0;
+		int index4 = 2;
+		System.out.println(Arrays.toString(array8));
+		partition(array8, index3, index4);
+		System.out.println(Arrays.toString(array8));
 
+		System.out.println("\n");
+		System.out.println("==========================================");
+		System.out.println("\n");
+		
 	}
 
 }
