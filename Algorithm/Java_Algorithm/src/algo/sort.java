@@ -519,8 +519,6 @@ public class sort
 		System.out.println("\n");
 		System.out.println("==========================================");
 		System.out.println("\n");
-
-		
 	}
 
 }

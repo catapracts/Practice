@@ -22,7 +22,7 @@ int bigNum (int, int); // 함수의 원형 선언
   - 조건 값으로는 int형으로 승격할 수 있는(integer promotion) 값만 사용= if / else 문보다는 사용할 수 있는 상황이 적은 편
   - default 절은 조건 값이 위에 나열된 어떠한 case 절에도 해당하지 않을 때 실행 / 반드시 존재해야 하는 것은 아니며 필요할 때에만 선언
 
-  
+     
 
 
 반복문(iteration statements)
