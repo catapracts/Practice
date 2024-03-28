@@ -25,6 +25,17 @@ public class sort
 	// 배열 안에 있는 요소들을 정렬하므로 1개 배열만 매개변수로 받는다
 	public static void Bubble(int array[])
 	{
+		for(int i = 0; i<array.length-1; i++)
+		{
+			if(array[i]> array[i+1])
+			{
+				swap(array,i,i+1);
+			}
+		}
+	}
+	
+//	public static void Bubble1(int array[])
+//	{
 //		//i와 j 2개의 index를 통해 비교, i가 첫 번째, j가 바로 다음 2번째
 //		for(int i = 0; i < array.length-1; i++) //
 //		{
@@ -37,15 +48,7 @@ public class sort
 //				}
 //			}
 //		}
-		
-		for(int i = 0; i<array.length-1; i++)
-		{
-			if(array[i]> array[i+1])
-			{
-				swap(array,i,i+1);
-			}
-		}
-	}
+//	}
 	
 	
 	/*
@@ -215,6 +218,119 @@ public class sort
 	3. 0 번째 인덱스를 자기 자리로 보내주기 위하여 heapify()를 사용한다.
 	4. 2번, 3번을 반복하면 되는데 반복하면서 마지막 인덱스를 1씩 감소시키면 된다.
 	*/
+
+	public static void HeapSort(int[] a) 
+	{
+		sort1(a, a.length);
+	}
+	
+	private static void sort1(int[] a, int size) 
+	{
+ 
+		/*
+		 * 부모노드와 heaify과정에서 음수가 발생하면 잘못 된 참조가 발생하기 때문에
+		 * 원소가 1개이거나 0개일 경우는 정렬 할 필요가 없으므로 바로 함수를 종료한다.
+		 */
+		if(size < 2) 
+		{
+			return;
+		}
+ 
+		/*
+		 * left child node = index * 2 + 1
+		 * right child node = index * 2 + 2
+		 * parent node = (index - 1) / 2
+		 */
+		
+		// 가장 마지막 요소의 부모 인덱스 
+		int parentIdx = getParent(size - 1);
+		
+		// max heap
+		for(int i = parentIdx; i >= 0; i--) 
+		{
+			heapify(a, i, size - 1);
+		}
+ 
+		
+		for(int i = size - 1; i > 0; i--) 
+		{
+			
+			/*
+			 *  root인 0번째 인덱스와 i번째 인덱스의 값을 교환해준 뒤
+			 *  0 ~ (i-1) 까지의 부분트리에 대해 max heap을 만족하도록
+			 *  재구성한다.
+			 */
+			swap(a, 0, i);
+			heapify(a, 0, i - 1);
+		}
+		
+	}
+	
+	
+	// 부모 인덱스를 얻는 함수
+	private static int getParent(int child) 
+	{
+	    return (child - 1) / 2;
+	}
+ 
+	
+	private static void heapify(int[] a, int parentIdx, int lastIdx) 
+	{
+		
+	    int leftChildIdx;
+	    int rightChildIdx;
+	    int largestIdx;
+ 
+	    /*
+	     * 현재 부모 인덱스의 자식 노드 인덱스가 
+	     * 마지막 인덱스를 넘지 않을 때 까지 반복한다.
+	     * 
+	     * 이 때 왼쪽 자식 노드를 기준으로 해야 한다.
+	     * 오른쪽 자식 노드를 기준으로 범위를 검사하게 되면
+	     * 마지막 부모 인덱스가 왼쪽 자식만 갖고 있을 경우
+	     * 왼쪽 자식노드와는 비교 및 교환을 할 수 없기 때문이다. 
+	     */
+	    while((parentIdx * 2) + 1 <= lastIdx) {
+	        leftChildIdx = (parentIdx * 2) + 1;
+	        rightChildIdx = (parentIdx * 2) + 2;
+	        largestIdx = parentIdx;
+ 
+	        /*
+	         * left child node와 비교 
+	         * (범위는 while문에서 검사했으므로 별도 검사 필요 없음)
+	         */
+	        if (a[leftChildIdx] > a[largestIdx]) {
+	            largestIdx = leftChildIdx;
+	        }
+ 
+	        /*
+	         * right child node와 비교 
+	         * right child node는 범위를 검사해주어야한다. 
+	         */
+	        if (rightChildIdx <= lastIdx && a[rightChildIdx] > a[largestIdx]) {
+	            largestIdx = rightChildIdx;
+	        }
+ 
+	        /*
+	         * 교환이 발생했을 경우 두 원소를 교체 한 후
+	         * 교환이 된 자식노드를 부모 노드가 되도록 교체한다. 
+	         */
+	        if (largestIdx != parentIdx) {
+	            swap(a, parentIdx, largestIdx);
+	            parentIdx = largestIdx;
+	        } 
+	        else {
+	            return;
+	        }
+	    }
+	}
+
+
+
+
+
+/*
+ Heap 정렬 방식1
 	public static void sortByHeapSort(int[] arr) 
 	{
 	    for (int i = arr.length / 2 - 1; i < arr.length; i++) 
@@ -262,7 +378,9 @@ public class sort
 	        }
 	    }
 	}
-	
+*/
+
+
 	/*
 	Quick Sort
 	- Divide and Conquer Algorithm 中 하나 / 피벗(pivot)을 사용 / 피벗이 들어갈 위치에 따라 불균형
@@ -386,7 +504,7 @@ public class sort
 		
 		int array6[] = {31,34,32,35,33};
 		System.out.println(Arrays.toString(array6));
-		sortByHeapSort(array6);
+		HeapSort(array6);
 		System.out.println(Arrays.toString(array6));
 		
 		System.out.println("\n");
@@ -401,17 +519,7 @@ public class sort
 		System.out.println("\n");
 		System.out.println("==========================================");
 		System.out.println("\n");
-		
-		int array8[] = {44,41,43,45,42};
-		int index3 = 0;
-		int index4 = 2;
-		System.out.println(Arrays.toString(array8));
-		partition(array8, index3, index4);
-		System.out.println(Arrays.toString(array8));
 
-		System.out.println("\n");
-		System.out.println("==========================================");
-		System.out.println("\n");
 		
 	}
 
