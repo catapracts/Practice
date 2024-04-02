@@ -16,3 +16,24 @@ str01 = ' '
 for i in myVar.a:
     str01 = str01 + i[0]
 print(str01)
+
+
+"""
+21.07
+a=100, result = 0이라는 변수 선언 및 초기화
+for i in range(1,3): -> 1이상부터 3미만까지 반복(총 2번 반복)
+result = a >> i -> result의 값 = a를 i만큼 왼쪽으로 이동한 것(bit가 i칸씩 왼쪽으로 이동한 것 = 2진수)
+result = result + 1 -> 그렇게 옮기고 난 뒤 + 1하기
+
+a = 100 = 1100100
+-> 1칸 이동(i = 1) : 0110010(32+16+2 = 50) -> + 1 = 51
+-> 2칸 이동(i = 2) : 0011001(16+8+1 = 25) -> + 1 = 26
+
+result 출력 : 26
+"""
+a = 100
+result = 0
+for i in range(1,3):
+    result = a >> i
+    result = result + 1
+print(result)
