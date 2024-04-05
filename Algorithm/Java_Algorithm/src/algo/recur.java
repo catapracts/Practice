@@ -148,31 +148,31 @@ public class recur
 	*/
 	public static int binarySearch(int[] arr, int low, int high, int key) 
 	{
-	    // 1. 높은 인덱스가 낮은 인덱스보다 크거나 같은지 확인합니다.
+	    // 1. 높은 인덱스가 낮은 인덱스보다 크거나 같은지 확인
 	    if (high >= low) 
 	    {
 	        // 2. 중간 값을 구합니다.
 	        int mid = low + (high - low) / 2;
 
-	        // 3. 배열의 요소 값이 찾는 값과 동일하면 중간 값을 반환합니다.
+	        // 3. 배열의 요소 값이 찾는 값과 동일하면 중간 값을 반환
 	        if (arr[mid] == key) 
 	        {
 	            return mid;
 	        }
 	        
-	        // 4. 중간 값이 키보다 큰 경우 : 낮은 인덱스와 중간 인덱스에서 1을 뺀 값을 가지고 함수를 재귀적으로 호출합니다.
+	        // 4. 중간 값이 키보다 큰 경우 : 낮은 인덱스와 중간 인덱스에서 1을 뺀 값을 가지고 함수를 재귀호출
 	        else if (arr[mid] > key) 
 	        {
 	            return binarySearch(arr, low, mid - 1, key);
 	        }
 	        
-	        // 5. 중간 값이 키보다 작은 경우 : 중간 인덱스에 1을 더하고 높은 인덱스와 함께 함수를 재귀적으로 호출합니다
+	        // 5. 중간 값이 키보다 작은 경우 : 중간 인덱스에 1을 더하고 높은 인덱스와 함께 함수를 재귀호출
 	        else 
 	        {
 	            return binarySearch(arr, mid + 1, high, key);
 	        }
 	    }
-	    // 6. 높은 인덱스가 낮은 인덱스보다 작으면 배열에서 키를 찾지 못했음을 나타내기 위해 -1을 반환합니다.
+	    // 6. 높은 인덱스가 낮은 인덱스보다 작으면 배열에서 키를 찾지 못했음을 나타내기 위해 -1을 반환
 	    return -1;
 	}
 	
@@ -201,11 +201,11 @@ public class recur
 
 	public static void main(String[] args) 
 	{
-		System.out.println(factorial(6));
+		System.out.println(factorial(5));
 		System.out.println("=============================");
-		System.out.println(sumNaturalNumber(6));
+		System.out.println(sumNaturalNumber(5));
 		System.out.println("=============================");
-		System.out.println(pow(3,5));
+		System.out.println(pow(2,5));
 		System.out.println("=============================");
 		System.out.println(reverseString("abcdefg"));
 		System.out.println("=============================");
