@@ -3,6 +3,8 @@
 */
 create database Test2010;
 
+/*2305에서 문제와 답 그대로 제출됨*/
+
 use Test2010;
 
 create Table 학생
