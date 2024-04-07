@@ -2,7 +2,12 @@ package Test2021;
 
 public class Test2107 
 {
-
+	static String check(int num)
+	{
+		return (num>=0) ? "positive" : "negative"; // 매개변수 num이 0보다 크거나 같으면, positive를, 다르면 negative를 출력한다.
+	}
+	
+	
 	public static void main(String[] args) 
 	{
 		System.out.println(Test2107.check(1)); //Test2107 class에 있는 함수 check 실행, 결과 : positive
@@ -12,16 +17,11 @@ public class Test2107
 		System.out.println(a1.sun(3,2) + a2.sun(3,2)); // 결과 : 11(= 5 + 6)
 	}
 	
-	static String check(int num)
-	{
-		return (num>=0) ? "positive" : "negative"; // 매개변수 num이 0보다 크거나 같으면, positive를, 다르면 negative를 출력한다.
-	}
-	
 	int sun(int x, int y) // Test2107 class에 명시된 함수
 	{
 		return x+y;
 	}
-
+	
 }
 
 class ovr2 extends Test2107 // Test2107을 상속받은 ovr2 클래스

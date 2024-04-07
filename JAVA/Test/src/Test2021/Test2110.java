@@ -2,8 +2,8 @@ package Test2021;
 
 class Connection 
 {
-	private static Connection __inst = null;
-	private int count = 0;
+	private static Connection __inst = null; // 객체 변수만 생성(new 안 쓰고) = Stack영역에만 공간 확보
+	private int count = 0; // 정수형 변수 count 선언 후 0으로 초기화
 	public static Connection get() 
 	{
 		if(__inst == null) 
@@ -19,21 +19,19 @@ class Connection
 	public int getCount() { return count; }
 }
 
-
-
 public class Test2110 
 {
 
 	public static void main(String[] args) 
 	{
-		Connection conn1 = Connection.get();
-		conn1.count();
+		Connection conn1 = Connection.get(); // Connection 클래스의 객체변수 conn1 선언 후 Connection class안의 get method를 이용한 결과 저장
+		conn1.count(); // conn1에 있는 count함수 실행
 		
-		Connection conn2 = Connection.get();
-		conn2.count();
+		Connection conn2 = Connection.get(); // Connection 클래스의 객체변수 conn2 선언 후 Connection class안의 get method를 이용한 결과 저장
+		conn2.count(); // conn2에 있는 count함수 실행
 		
-		Connection conn3 = Connection.get();
-		conn3.count();
+		Connection conn3 = Connection.get(); // Connection 클래스의 객체변수 conn3 선언 후 Connection class안의 get method를 이용한 결과 저장
+		conn3.count(); // conn3에 있는 count함수 실행
 		
 		System.out.println(conn1.getCount());
 		
