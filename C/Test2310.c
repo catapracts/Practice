@@ -13,6 +13,28 @@ int f(int n)
 	}
 }
 
+int isPerfectNum(int num)
+{
+	int sum = 0;
+	for(int i = 1; i < num; i++)
+	{
+		if(num % i == 0)
+		{
+			sum+=i;
+		}
+	}
+	
+	if(num==sum)
+	{
+		return 1;
+	}
+	
+	else
+	{
+		return 0;
+	}
+}
+
 struct insa
 {
 	char name[10];
@@ -45,4 +67,14 @@ main()
 	printf("%d", f(7));
 	
 	printf("\n==============================\n");
+	
+	int r = 0;
+	for(int i = 1; i <= 100; i++)
+	{
+		if(isPerfectNum(i))
+		{
+			r += i;
+		}
+	}
+	printf("%d", r);
 }
